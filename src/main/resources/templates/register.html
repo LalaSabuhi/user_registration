@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace ="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+</head>
+<body>
+    <section>
+       <div class="container">
+           <div class="row">
+               <div class="col-md-6 offset-md-3" >
+                   <div class="card">
+                       <div class="card-header text-center fs-4">Register Now</div>
+                       <div class="card-body">
+                           <form>
+                               <div class="form-group">
+                                   <label for="exampleInputEmail1">Enter Full Name</label>
+                                   <input id="exampleInputEmail1" name="fullName" class="form-control" aria-describedby="emailHelp">
+                               </div>
+                               <div class="form-group">
+                                   <label for="exampleInputEmail3">Email address</label>
+                                   <input  type="email" name="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+                                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                               </div>
+                               <div class="form-group">
+                                   <label for="exampleInputEmail2">Enter Address</label>
+                                   <input class="form-control" name="address" aria-describedby="emailHelp" id="exampleInputEmail2">
+                               </div>
+                               <div class="form-group">
+                                   <label for="exampleInputQualification">Enter Qualification</label>
+                                   <input  class="form-control" name="qualification" aria-describedby="emailHelp" id="exampleInputQualification">
+                               </div>
+
+                               <div class="form-group">
+                                   <label for="exampleInputPassword1">Password</label>
+                                   <input type="password" class="form-control" id="exampleInputPassword1">
+                               </div>
+                               <div class="form-group form-check">
+                                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                   <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                               </div>
+                               <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </section>
+
+
+
+
+</body>
+</html>
