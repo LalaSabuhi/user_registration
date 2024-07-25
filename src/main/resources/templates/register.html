@@ -11,6 +11,9 @@
                <div class="col-md-6 offset-md-3" >
                    <div class="card">
                        <div class="card-header text-center fs-4">Register Now</div>
+                       <th:block th:if="${session.msg}">
+                           <p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+                       </th:block>
                        <div class="card-body">
                            <form th:action="createUser" method="post">
                                <div class="form-group">

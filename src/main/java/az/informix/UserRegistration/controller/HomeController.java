@@ -20,30 +20,34 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/signin")
     public String login(){
         return "login";
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register(HttpSession httpSession, Model model){
+        String msg = (String) httpSession.getAttribute("msg");
+        if(msg != null){
+            model.addAttribute("msg", msg);
+            httpSession.removeAttribute("msg");
+        }
         return "register";
     }
     @PostMapping("/createUser")
-    public String createUser(Model model, @ModelAttribute UserDtls user, HttpSession httpSession){
-        boolean f= userService.checkEmail(user.getEmail());
-        if(f){
-
+    public String createUser(@ModelAttribute UserDtls user, HttpSession httpSession) {
+        boolean f = userService.checkEmail(user.getEmail());
+        if (f) {
             httpSession.setAttribute("msg", "Email id already exists");
-        }else{
+        } else {
             UserDtls userDtls = userService.createUser(user);
-            if(userDtls != null){
-                System.out.println("Registered Successfully");
-            }else{
-                System.out.println("Something went wrong");
+            if (userDtls != null) {
+                httpSession.setAttribute("msg", "Register Successfully");
+            } else {
+                httpSession.setAttribute("msg", "Something went wrong");
             }
         }
-
         return "redirect:/register";
     }
+
 }
